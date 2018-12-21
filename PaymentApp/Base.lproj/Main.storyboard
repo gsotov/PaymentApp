@@ -193,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Oea-pr-SDS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellTable" id="Oea-pr-SDS">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oea-pr-SDS" id="aep-Pb-Fa5">
@@ -267,6 +267,9 @@
                     <navigationItem key="navigationItem" title="Selecciuona tu Banco" id="aWV-oP-zOm"/>
                     <connections>
                         <outlet property="btnNext" destination="PNr-Lt-NcW" id="WYD-2d-dau"/>
+                        <outlet property="lblTarjeta" destination="sXD-cD-2FJ" id="yxG-zk-LQM"/>
+                        <outlet property="montoLbl" destination="aVl-2s-9Tg" id="oIv-wB-y6U"/>
+                        <outlet property="tableBanco" destination="UBC-WW-oaN" id="Wxn-I9-g7n"/>
                         <segue destination="7aJ-B1-Bva" kind="show" identifier="segue4" id="thm-AW-d0G"/>
                     </connections>
                 </viewController>
@@ -296,7 +299,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4Y-kg-sym">
-                                <rect key="frame" x="0.0" y="280" width="336" height="319"/>
+                                <rect key="frame" x="0.0" y="280" width="375" height="319"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cantidad De Cuotas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFL-Zf-EzZ">
                                 <rect key="frame" x="110" y="304" width="154" height="21"/>
@@ -373,6 +376,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9un-Zg-bEU">
+                                <rect key="frame" x="147" y="251" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.91595914884715146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -416,10 +426,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pT6-Lg-yi6"/>
                     </view>
+                    <connections>
+                        <outlet property="bancoLbl" destination="uPf-HZ-AYD" id="UNj-2J-1LJ"/>
+                        <outlet property="cuotasLbl" destination="2DG-9a-3rk" id="WCA-3w-4cL"/>
+                        <outlet property="montoLbl" destination="0BC-Ba-MLq" id="W3V-fX-A9R"/>
+                        <outlet property="picketData" destination="g4Y-kg-sym" id="tZL-yA-geR"/>
+                        <outlet property="tarjetaLbl" destination="JMU-cl-XCO" id="uSw-1N-Hg7"/>
+                        <outlet property="totalPagarLbl" destination="9un-Zg-bEU" id="y1D-KQ-2cF"/>
+                        <outlet property="valorCuotaLbl" destination="BHV-7i-0NG" id="8SM-Px-9l1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pP8-Pu-ool" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="107"/>
+            <point key="canvasLocation" x="2368.8000000000002" y="106.59670164917542"/>
         </scene>
     </scenes>
     <resources>
