@@ -15,6 +15,8 @@
 		D79BE08021CD439200777435 /* Bancos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BE07F21CD439200777435 /* Bancos.swift */; };
 		D79BE08221CD512100777435 /* Installments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BE08121CD512100777435 /* Installments.swift */; };
 		D7DE196421CD78CF005AD73B /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE196321CD78CF005AD73B /* PaymentViewController.swift */; };
+		D7DE196621CD8655005AD73B /* BancoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE196521CD8655005AD73B /* BancoViewController.swift */; };
+		D7DE196821CD86DC005AD73B /* InstallmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE196721CD86DC005AD73B /* InstallmentViewController.swift */; };
 		D801E9D9712E4CE311A2234E /* Pods_PaymentApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A825B3A388F625E795F8F59F /* Pods_PaymentApp.framework */; };
 		FF05263521CC79B60079535A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF05263421CC79B60079535A /* AppDelegate.swift */; };
 		FF05263A21CC79B60079535A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF05263821CC79B60079535A /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		D79BE07F21CD439200777435 /* Bancos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bancos.swift; sourceTree = "<group>"; };
 		D79BE08121CD512100777435 /* Installments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installments.swift; sourceTree = "<group>"; };
 		D7DE196321CD78CF005AD73B /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		D7DE196521CD8655005AD73B /* BancoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoViewController.swift; sourceTree = "<group>"; };
+		D7DE196721CD86DC005AD73B /* InstallmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentViewController.swift; sourceTree = "<group>"; };
 		FF05263121CC79B60079535A /* PaymentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF05263421CC79B60079535A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF05263921CC79B60079535A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			children = (
 				D79BE07721CD3F7600777435 /* ViewController.swift */,
 				D7DE196321CD78CF005AD73B /* PaymentViewController.swift */,
+				D7DE196521CD8655005AD73B /* BancoViewController.swift */,
+				D7DE196721CD86DC005AD73B /* InstallmentViewController.swift */,
 			);
 			path = Controlador;
 			sourceTree = "<group>";
@@ -435,9 +441,11 @@
 				D7DE196421CD78CF005AD73B /* PaymentViewController.swift in Sources */,
 				D79BE08021CD439200777435 /* Bancos.swift in Sources */,
 				D79BE07E21CD40CE00777435 /* TarjetaCredito.swift in Sources */,
+				D7DE196821CD86DC005AD73B /* InstallmentViewController.swift in Sources */,
 				D79BE07821CD3F7600777435 /* ViewController.swift in Sources */,
 				D79BE08221CD512100777435 /* Installments.swift in Sources */,
 				FF05263521CC79B60079535A /* AppDelegate.swift in Sources */,
+				D7DE196621CD8655005AD73B /* BancoViewController.swift in Sources */,
 				D79BE07C21CD401A00777435 /* ServiceApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

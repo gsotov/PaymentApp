@@ -8,19 +8,24 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController {
+class PaymentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var tarjetaCredito: UITableView!
     @IBOutlet weak var cantidadLbl: UILabel!
     
-    var tarjetasDeCreditos = [TarjetaCredito]()
+    var arregloTarjeta = [TarjetaCredito]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         cantidadLbl.text = ServiceApi.ParameterValues.cant_pagar
-
+        
+        tarjetaCredito.delegate = self
+        tarjetaCredito.dataSource = self
+        
+        getDataPayment()
         // Do any additional setup after loading the view.
     }
     
@@ -30,11 +35,15 @@ class PaymentViewController: UIViewController {
     }
     
     func getDataPayment(){
-        ServiceApi.getPaymentMethod { (success, creditCards, error) in
+        ServiceApi.getPaymentMethod { (success, tarjetaCredito, error) in
             DispatchQueue.main.async {
-                if (success){
-                    if let creditCards = creditCards {
-                        self.tarjetasDeCreditos = creditCards
+                if (success)
+                {
+                    
+                    if let tarjetaCreditos = tarjetaCredito
+                    {
+                        print("entra en IF")
+                        self.arregloTarjeta = tarjetaCreditos
                         self.tarjetaCredito.reloadData()
                         
                     }
@@ -45,20 +54,23 @@ class PaymentViewController: UIViewController {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return tarjetasDeCreditos.count
+        
+        print("---------")
+        print(arregloTarjeta.count)
+        print("end Tarjetas")
+        return arregloTarjeta.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let cellReuseId = "cell"
-        let tarjetaCredito = tarjetasDeCreditos[(indexPath as NSIndexPath).row]
+        let cellReuseId = "cellTarjeta"
+        let tarjetaCredito = arregloTarjeta[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
         let imageUrlString = tarjetaCredito.thumbnail
         let imageUrl = URL(string: imageUrlString ?? "")!
         let imageData = try! Data(contentsOf: imageUrl)
         let image = UIImage(data: imageData)
-        //Carga poco optimizada, deberia ser carga de data a uiimage
         cell.imageView?.image = image
         cell.textLabel?.text = tarjetaCredito.name
         
@@ -67,7 +79,7 @@ class PaymentViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let tarjetaCredito = tarjetasDeCreditos[(indexPath as NSIndexPath).row]
+        let tarjetaCredito = arregloTarjeta[(indexPath as NSIndexPath).row]
         debugPrint("el nombre de la tarjeta seleccionada es: \(tarjetaCredito.name)")
         debugPrint("el id de la tarjeta seleccionada es: \(tarjetaCredito.id)")
         if (tarjetaCredito.name.isEmpty){
