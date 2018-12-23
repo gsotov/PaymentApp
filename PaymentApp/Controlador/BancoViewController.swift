@@ -53,7 +53,7 @@ class BancoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellReuseId = "cellTarjeta"
+        let cellReuseId = "cellTable"
         let banco = arregloBancoApi[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as UITableViewCell
         let imageUrlString = banco.thumbnail
@@ -74,9 +74,12 @@ class BancoViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             btnNext.isEnabled = true
         }
-        
+        debugPrint("el nombre del banco: \(banco.name)")
+        debugPrint("el id deL BANCO: \(banco.id)")
         ServiceApi.ParameterValues.nameBanco = banco.name
         ServiceApi.ParameterValues.idBanco = banco.id
+        
+        
         
     }
     

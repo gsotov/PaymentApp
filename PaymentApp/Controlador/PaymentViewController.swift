@@ -80,8 +80,10 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let tarjetaCredito = arregloTarjeta[(indexPath as NSIndexPath).row]
+        
         debugPrint("el nombre de la tarjeta seleccionada es: \(tarjetaCredito.name)")
         debugPrint("el id de la tarjeta seleccionada es: \(tarjetaCredito.id)")
+        
         if (tarjetaCredito.name.isEmpty){
             
         } else {
@@ -89,6 +91,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         ServiceApi.ParameterValues.nameTC = tarjetaCredito.name
+        
         ServiceApi.ParameterValues.tcId = tarjetaCredito.id
         
     }

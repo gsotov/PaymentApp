@@ -15,7 +15,7 @@ struct TarjetaCredito {
     
     init (dictionary: [String:AnyObject]){
         id = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.TCId] as! String
-        name = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.TCId] as! String
+        name = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.TCName] as! String
         thumbnail = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.Thumbnail] as? String
     }
     
