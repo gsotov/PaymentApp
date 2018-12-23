@@ -18,7 +18,9 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         cantidadLbl.text = ServiceApi.ParameterValues.cant_pagar
         

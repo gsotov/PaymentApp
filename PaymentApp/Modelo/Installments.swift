@@ -7,7 +7,8 @@
 //
 
 import Foundation
-struct Installment
+
+struct Installments
 {
     let Payer_Costs: [[String:AnyObject]]?
     var installments: Int = 0
@@ -15,10 +16,10 @@ struct Installment
     var total_amount: Double = 0
     var installment_amount: Double = 0
     
-    static var installmentsArray: [Int] = []
-    static var recommended_MessageArray: [String] = []
-    static var total_AmountArray: [Double] = []
-    static var installment_AmountArray: [Double] = []
+    static var arrayInstallments: [Int] = []
+    static var recommended_Message: [String] = []
+    static var total_Pagar: [Double] = []
+    static var installment_Amount: [Double] = []
     
     init(dictionary: [String:AnyObject])
     {
@@ -27,31 +28,31 @@ struct Installment
         
         if let Payer_Costs = Payer_Costs
         {
-            for i in Payer_Costs
+            for data in Payer_Costs
             {
                 
-                installments = i["installments"] as! Int
-                recommended_message = i["recommended_message"] as! String
-                total_amount = i["total_amount"] as! Double
-                installment_amount = i["installment_amount"] as! Double
+                installments = data["installments"] as! Int
+                recommended_message = data["recommended_message"] as! String
+                total_amount = data["total_amount"] as! Double
+                installment_amount = data["installment_amount"] as! Double
                 
-                Installment.installmentsArray.append(installments)
-                Installment.recommended_MessageArray.append(recommended_message)
-                Installment.total_AmountArray.append(total_amount)
-                Installment.installment_AmountArray.append(installment_amount)
+                Installments.arrayInstallments.append(installments)
+                Installments.recommended_Message.append(recommended_message)
+                Installments.total_Pagar.append(total_amount)
+                Installments.installment_Amount.append(installment_amount)
                 
             }
         }
     }
     
     
-    static func getMessage(_ messageResultado: [[String:AnyObject]]) -> [Installment]
+    static func getMessage(_ messageResultado: [[String:AnyObject]]) -> [Installments]
     {
-        var mensajeInst = [Installment]()
-        
+        var mensajeInst = [Installments]()
+        //obtiene los datos y lo va almacenando en el diccionario
         for mensaje in messageResultado
         {
-            mensajeInst.append(Installment(dictionary: mensaje))
+            mensajeInst.append(Installments(dictionary: mensaje))
         }
         return mensajeInst
     }

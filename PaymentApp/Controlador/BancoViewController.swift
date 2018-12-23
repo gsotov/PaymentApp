@@ -19,7 +19,9 @@ class BancoViewController: UIViewController, UITableViewDataSource, UITableViewD
     var arregloBancoApi = [Bancos]()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         montoLbl.text = ServiceApi.ParameterValues.cant_pagar
         lblTarjeta.text = ServiceApi.ParameterValues.nameTC

@@ -17,7 +17,6 @@ struct Bancos
     
     init(dictionary: [String:AnyObject])
     {
-        
         id = dictionary[ServiceApi.Bancos_Objetc.JsonResponseKeys.BId] as! String
         name = dictionary[ServiceApi.Bancos_Objetc.JsonResponseKeys.BName] as! String
         thumbnail = dictionary[ServiceApi.Bancos_Objetc.JsonResponseKeys.Thumb] as? String

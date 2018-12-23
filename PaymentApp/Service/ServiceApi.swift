@@ -50,16 +50,16 @@ class ServiceApi : NSObject
     }
 
     
-    static func getMensaje(amount:String, paymentMethod: String, issuerId:String, _ completionHandlerForMessageObject: @escaping ( _ success: Bool, _ creditCards:[Installment]?, _  errorString: String?) -> Void){
+    static func getMensaje(cant_pagar:String, idTarjeta: String, idBanco:String, _ completionHandlerForMessageObject: @escaping ( _ success: Bool, _ creditCards:[Installments]?, _  errorString: String?) -> Void){
         let url = "https://api.mercadopago.com/v1/payment_methods/installments?public_key=444a9ef5-8a6b-429f-abdf-587639155d88"
         
-        let _amount = "&amount="+amount
-        let _payment_method = "&payment_method_id=" + paymentMethod
-        let _issuer_id = "&issuer.id=" + issuerId
+        let _cant_pagar = "&amount=" + cant_pagar
+        let _idTarjeta = "&payment_method_id=" + idTarjeta
+        let _idBanco = "&issuer.id=" + idBanco
         
-        print("URL getMensaje: \(url+_amount+_payment_method+_issuer_id)")
+        print("URL getMensaje: \(url+_cant_pagar+_idTarjeta+_idBanco)")
         
-        Alamofire.request(url+_amount+_payment_method+_issuer_id).responseJSON
+        Alamofire.request(url+_cant_pagar+_idTarjeta+_idBanco).responseJSON
             {
                 response in
                 if let json = response.result.value
@@ -67,7 +67,7 @@ class ServiceApi : NSObject
                     debugPrint("JSON ", json)
                     let parsedJson = JSON(json)
                     debugPrint("JSON", parsedJson)
-                    let resultMessage = Installment.getMessage(json as! [[String : AnyObject]])
+                    let resultMessage = Installments.getMessage(json as! [[String : AnyObject]])
                     completionHandlerForMessageObject(true, resultMessage, nil)
                 }
            }
@@ -81,7 +81,6 @@ class ServiceApi : NSObject
         static var cant_pagar = ""
         static var nameBanco = ""
         static var idBanco = ""
-        static var alert: Bool = false
         static var cantidadCuotas = ""
         static var recomendarCuotas = ""
         static var totalPagar = ""

@@ -8,18 +8,21 @@
 
 import UIKit
 
-struct TarjetaCredito {
+struct TarjetaCredito
+{
     var id: String
     var name: String
     var thumbnail: String?
     
-    init (dictionary: [String:AnyObject]){
+    init (dictionary: [String:AnyObject])
+    {
         id = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.TCId] as! String
         name = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.TCName] as! String
         thumbnail = dictionary[ServiceApi.TarjetaCredito_Object.JsonResponseKeys.Thumbnail] as? String
     }
     
-    static func getTarjetaCredito(_ tarjetaCreditoResultado: [[String:AnyObject]]) -> [TarjetaCredito] {
+    static func getTarjetaCredito(_ tarjetaCreditoResultado: [[String:AnyObject]]) -> [TarjetaCredito]
+    {
     
         var TCArray = [TarjetaCredito]()
         
